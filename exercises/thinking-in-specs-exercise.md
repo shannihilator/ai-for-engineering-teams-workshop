@@ -1,4 +1,4 @@
-# Exercise 01: Prompt Claude for Your First Spec
+# Exercise: Prompt Claude for Your First Spec
 
 **Goal:** Use Claude to create a clear, testable specification for CustomerSelector component
 
