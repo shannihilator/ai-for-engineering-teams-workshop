@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import CustomerCard, { Customer } from '../components/CustomerCard';
+import { DomainHealthWidget } from '../components/DomainHealthWidget';
 
 // Mock customer data for testing
 const mockCustomers: Customer[] = [
@@ -25,8 +26,13 @@ export default function Home() {
       <div className="max-w-6xl mx-auto">
         <header className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Customer Intelligence Dashboard</h1>
-          <p className="text-gray-600">CustomerCard Component Demo</p>
+          <p className="text-gray-600">Domain Health Integration & Customer Management Demo</p>
         </header>
+
+        {/* Domain Health Widget */}
+        <div className="mb-8">
+          <DomainHealthWidget className="max-w-2xl" />
+        </div>
 
         {selectedCustomer && (
           <div className="mb-6 p-4 bg-blue-100 border border-blue-300 rounded-lg">
