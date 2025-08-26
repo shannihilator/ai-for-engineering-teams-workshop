@@ -1,4 +1,4 @@
-# Exercise: Market Intelligence Widget Composition
+# Exercise 07: Market Intelligence Widget Composition
 
 **Goal:** Build a market intelligence widget using spec-driven context compression
 
