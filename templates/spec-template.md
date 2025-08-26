@@ -16,11 +16,9 @@ Copy this template for all workshop exercises:
 - Integration requirements
 
 ### Constraints
-- Technical stack and frameworks (Next.js 15, React 19, TypeScript, Tailwind CSS)
-- Performance requirements (load times, rendering thresholds)
-- Design constraints (responsive breakpoints, component size limits)
-- File structure and naming conventions
-- Props interface and TypeScript definitions
+- Technical stack and frameworks
+- Performance requirements
+- Design constraints (size, responsive, etc.)
 - Security considerations
 
 ### Acceptance Criteria

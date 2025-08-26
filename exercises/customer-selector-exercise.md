@@ -1,4 +1,4 @@
-# Exercise 04: Generate CustomerSelector Component
+# Exercise: Generate CustomerSelector Component
 
 **Goal:** Create a container component using spec-driven development workflow
 
@@ -7,9 +7,9 @@
 **Your task** (20 minutes):
 1. **Generate spec**: Prompt Claude with "Write a CustomerSelector spec using @templates/spec-template.md and @requirements/customer-selector.md"
 2. **Validate spec** - Review for completeness, especially CustomerCard integration and state management
-3. **Implement component**: Prompt Claude with "Implement CustomerSelector using @data/mock-customers.ts and @specs/customer-selector-spec.md"
-4. **Test and iterate** - Verify search/filter functionality and customer domain display work correctly
-5. **Final verification** - Ensure component works with all mock customer data including domain information
+3. **Implement component**: Prompt Claude with "Implement the CustomerSelector component based on this spec" (paste your validated spec)
+4. **Test and iterate** - Verify search/filter functionality and run refinement iterations
+5. **Final verification** - Ensure component works with all mock customer data
 
 </v-clicks>
 
