@@ -1,4 +1,4 @@
-# Exercise 02c: Add Code Quality to Platform Context
+# Exercise: Add Code Quality to Platform Context
 
 **Goal:** Use Claude to enhance platform constraints with code quality standards
 

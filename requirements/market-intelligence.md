@@ -13,7 +13,7 @@
 - Integrate with Stillriver proxy to API Ninjas news endpoint
 - Validate company name input and sanitize responses
 - Return consistent JSON response format with sentiment, news count, and headlines
-- Follow same patterns as existing customer management API routes
+- Follow same patterns as existing domain health API route
 
 ### Service Layer
 - Create MarketIntelligenceService class following established patterns
@@ -46,7 +46,7 @@
 - Input sanitization and external API call security
 - Proper timeout handling for external API requests
 - Error message sanitization (no sensitive information leakage)
-- Follow same security patterns as customer management integration
+- Follow same security patterns as domain health integration
 
 ## Technical Constraints
 - Next.js 15 App Router with Route Handlers
@@ -58,7 +58,7 @@
 
 ## Integration Pattern Requirements
 - Match existing widget styling and layout patterns
-- Use same color coding system as customer management (green/yellow/red)
+- Use same color coding system as domain health (green/yellow/red)
 - Follow same input/button/error display patterns
 - Implement same loading state and error handling UX
 - Maintain consistent spacing, typography, and component structure
