@@ -1,4 +1,4 @@
-# Exercise: Add Accessibility to Platform Context
+# Exercise 02a: Add Accessibility to Platform Context
 
 **Goal:** Use Claude to enhance platform constraints with accessibility requirements
 

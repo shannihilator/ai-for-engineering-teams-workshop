@@ -1,4 +1,4 @@
-# Exercise: Predictive Alerts System
+# Exercise 09: Predictive Alerts System
 
 **Goal:** Create intelligent customer alerts with AI collaboration and security review
 

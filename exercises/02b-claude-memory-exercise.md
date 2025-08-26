@@ -1,4 +1,4 @@
-# Exercise: Configure Claude Memory for Workshop Context
+# Exercise 02b: Configure Claude Memory for Workshop Context
 
 **Goal:** Use Claude's memory system to store workshop patterns and file organization
 
