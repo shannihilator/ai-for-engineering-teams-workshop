@@ -14,13 +14,6 @@
 - Foundation for all other dashboard features and analytics
 
 ## Functional Requirements
-
-### User Experience Flow
-- Users should be able to navigate from the home screen to customer management
-- Home screen should provide clear access point to customer management features
-- Seamless transition between customer browsing (existing CustomerCard selection) and customer management (CRUD operations)
-- Integration with existing customer display components and workflows
-
 ### API Layer
 - Create Next.js API routes for customer CRUD operations:
   - `GET /api/customers` - List all customers with optional filtering
@@ -43,13 +36,6 @@
 - Input validation with real-time feedback
 - Success/error states with proper user notifications
 - CustomerList component to display existing customers with filtering
-
-### Navigation and User Flow
-- Add navigation from home screen to customer management functionality
-- Provide clear entry point for users to access customer management features
-- Include "Manage Customers" or "Customer Management" button/link on main dashboard
-- Ensure smooth transition between home view and customer management view
-- Maintain consistent navigation patterns with existing dashboard components
 
 ## Security Requirements
 - Input validation to prevent injection attacks (name, email, company fields)
