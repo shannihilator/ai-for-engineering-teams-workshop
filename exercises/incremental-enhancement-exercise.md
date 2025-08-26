@@ -1,4 +1,4 @@
-# Exercise 05: Incremental Feature Enhancement
+# Exercise: Incremental Feature Enhancement
 
 **Goal:** Use incremental loops to enhance CustomerCard with selection state using spec-driven development
 
