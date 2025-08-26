@@ -1,14 +1,12 @@
 {
-  "name": "ai-for-engineering-teams-workshop",
-  "version": "1.0.0",
-  "description": "Customer Intelligence Dashboard - AI for Engineering Teams Workshop",
+  "name": "app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint"
   },
   "dependencies": {
     "react": "19.1.0",

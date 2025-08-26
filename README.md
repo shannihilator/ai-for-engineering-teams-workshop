@@ -1,78 +1,36 @@
-# AI for Engineering Teams Workshop
-
-This is the workshop repository for **AI for Engineering Teams: Practical Tools & Workflows for Modern Development**. Students will build a Customer Intelligence Dashboard using spec-driven development with AI agents.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-### Using VS Code Dev Containers (Recommended)
-
-1. Open this repository in VS Code
-2. When prompted, click "Reopen in Container" (or use Command Palette: "Dev Containers: Reopen in Container")
-3. The dev container will automatically set up the environment with Node.js LTS
-4. Run the development server:
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the application.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Local Development (Alternative)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Requires Node.js LTS. Install dependencies and start the dev server:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-npm install
-npm run dev
-```
+## Learn More
 
-## Project Structure
+To learn more about Next.js, take a look at the following resources:
 
-```
-├── src/                  # Next.js application source
-│   ├── app/             # App Router pages and layouts
-│   └── data/            # Mock data and API integration
-├── public/              # Static assets
-├── exercises/           # Workshop exercises
-├── requirements/        # Feature requirements and specifications
-├── specs/               # Generated specifications (AI output)
-└── templates/           # Specification templates
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Workshop Methodology
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-This workshop teaches **spec-driven development** with AI agents:
+## Deploy on Vercel
 
-1. **Write clear specifications** using templates in `/templates/`
-2. **Store generated specs** in `/specs/` for reference
-3. **Work through exercises** in `/exercises/` directory
-4. **Build iteratively** with AI assistance
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Tech Stack
-
-- **Frontend**: Next.js 15+ (App Router), React 19, TypeScript
-- **Styling**: Tailwind CSS
-- **Data**: Mock customer data, API Ninjas integration
-- **Development**: VS Code Dev Containers, Node LTS
-
-## Workshop Exercises
-
-Complete exercises progressively, each building upon previous skills:
-
-- Exercise 1: Thinking in Specs
-- Exercise 2: Platform Context Injection  
-- Exercise 3: First AI-Generated Component
-- Exercise 4: Incremental Agent Loops
-- And more...
-
-## Key Learning Objectives
-
-- Transform ideas into AI-ready specifications
-- Implement spec-driven development workflows
-- Use AI agents for iterative component development
-- Apply security best practices for AI-generated code
-- Build production-ready applications with AI assistance
-
-## Support
-
-During the workshop, instructors will guide you through each exercise. Focus on understanding the methodology rather than just completing tasks.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

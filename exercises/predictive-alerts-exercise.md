@@ -1,6 +1,8 @@
-# Exercise 09: Predictive Alerts System
+# Exercise: Predictive Alerts System
 
 **Goal:** Create intelligent customer alerts with AI collaboration and security review
+
+<v-clicks>
 
 **Your task** (25 minutes):
 1. **Generate spec**: Create spec using @templates/spec-template.md and @requirements/predictive-alerts.md
@@ -11,4 +13,10 @@
 6. **Dashboard integration**: Integrate alerts into main dashboard
 7. **Test scenarios**: Validate with realistic customer data and edge cases
 
+</v-clicks>
+
+<v-click>
+
 **Success criteria:** Working predictive alerts system that proactively surfaces customer risks
+
+</v-click>
