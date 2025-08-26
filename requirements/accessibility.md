@@ -1,11 +1,13 @@
 # Accessibility Requirements
 
 ## Business Context
+
 - Ensure all workshop components meet WCAG 2.1 AA standards
 - Support users with disabilities including screen readers, keyboard navigation, and reduced motion preferences
 - Build inclusive user interfaces that work for everyone
 
 ## Functional Requirements
+
 - All interactive elements must be keyboard accessible
 - Proper semantic HTML structure with heading hierarchy
 - ARIA labels and descriptions for complex UI components
