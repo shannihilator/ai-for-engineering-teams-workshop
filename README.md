@@ -34,6 +34,7 @@ npm run dev
 │   └── data/            # Mock data and API integration
 ├── public/              # Static assets
 ├── exercises/           # Workshop exercises
+├── requirements/        # Feature requirements and specifications
 ├── specs/               # Generated specifications (AI output)
 └── templates/           # Specification templates
 ```
