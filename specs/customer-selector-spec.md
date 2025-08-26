@@ -1,16 +1,14 @@
-# Spec Template for Workshop
+# Feature: CustomerSelector Component
 
-Copy this template for all workshop exercises:
+## Context
 
-## Feature: CustomerSelector Component
-
-### Context
 - Main customer selection interface for the Customer Intelligence Dashboard
 - Central component that allows users to browse and select customers for detailed analysis
 - Primary entry point for customer-focused workflows in the dashboard
 - Used by business analysts, customer success managers, and sales teams during customer review sessions
 
 ### Requirements
+
 - Display customer cards showing name, company, and health score in a grid/list layout
 - Implement real-time search functionality to filter customers by name or company
 - Provide visual feedback for selected customer state with clear highlighting
@@ -19,6 +17,7 @@ Copy this template for all workshop exercises:
 - Support keyboard navigation for accessibility compliance
 
 ### Constraints
+
 - Technical stack and frameworks (Next.js 15, React 19, TypeScript, Tailwind CSS)
 - Performance requirements: render 100+ customer cards within 200ms
 - Design constraints: responsive breakpoints (mobile: 320px+, tablet: 768px+, desktop: 1024px+)
@@ -27,6 +26,7 @@ Copy this template for all workshop exercises:
 - Security considerations: sanitize search input, validate customer data structure
 
 ### Acceptance Criteria
+
 - [ ] Displays customer cards with name, company, and health score prominently
 - [ ] Search input filters customers in real-time as user types
 - [ ] Selected customer shows clear visual distinction (border, background, or highlight)

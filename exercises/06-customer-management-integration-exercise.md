@@ -1,120 +1,186 @@
-# Exercise 06: Agent Setup Instructions
+# Exercise 06: Customer Management Integration
 
-**Before starting:** Define specialized agents for coordinated development.
+**Goal:** Build complete customer management with multi-layer orchestration, building upon previous exercises
 
 <v-clicks>
 
-## How to Set Up Agents (Step-by-Step):
+## Building Upon Previous Work
 
-1. **Open Claude Code** and create a new agent by typing:
-   ```
-   /agent create api-agent
-   ```
+**What we have so far:**
 
-2. **Configure each agent** with specific context and role:
+- ✅ **CustomerCard component** (Exercise 03) with health score visualization
+- ✅ **CustomerSelector component** (Exercise 04) with search and selection
+- ✅ **Enhanced CustomerCard** (Exercise 05) with click handling and selection state
+- ✅ **Mock customer data** in `@app/src/data/mock-customers.ts` with 8 customers
 
-**API Agent Setup:**
-```
-/agent create api-agent
-Context: "@requirements/customer-management-integration.md API Layer section"
-Role: "You are an API route specialist focusing on Next.js Route Handlers and security. Create secure CRUD endpoints with proper validation."
-```
+**What we're adding:** Full customer management (Create, Read, Update, Delete) with API integration
 
 </v-clicks>
 
 ---
 
-# Exercise 06: More Agent Setup
+# Exercise 06: Agent Setup - You Do It
+
+**Learning Goal:** Practice setting up specialized agents for coordinated development
 
 <v-clicks>
 
-**Security Agent Setup:**
-```
-/agent create security-agent  
-Context: "@requirements/customer-management-integration.md Security Requirements"
-Role: "You are a security reviewer specializing in input validation and injection prevention. Review all API code for vulnerabilities."
+**Step 1:** Create your first agent (API specialist):
+
+```bash
+# In Claude Code, create an API-focused agent
+/agent create api-specialist
+
+# Configure it with this context:
+"You are an API route specialist. Focus on Next.js App Router Route Handlers.
+Build secure CRUD endpoints that work with existing Customer interface from @app/src/data/mock-customers.ts.
+Always include input validation and proper HTTP status codes."
 ```
 
-**Service Agent Setup:**
-```
+**Step 2:** Create a service layer agent:
+
+```bash
 /agent create service-agent
-Context: "@requirements/customer-management-integration.md Service Layer"
-Role: "You are a service layer specialist for CustomerService and data abstraction. Create clean business logic separation."
-```
 
-**UI Agent Setup:**
-```
-/agent create ui-agent
-Context: "@requirements/customer-management-integration.md UI Components"  
-Role: "You are a React component specialist for forms and customer display. Build user-friendly interfaces with validation."
+# Configure with:
+"You are a service layer specialist. Create CustomerService classes that abstract data operations.
+Build upon existing mock-customers.ts data structure. Focus on clean business logic separation."
 ```
 
 </v-clicks>
 
 ---
 
-# Exercise 06: Final Agent Setup
+# Exercise 06: Complete Agent Setup
+
+**Continue setting up your agent team:**
 
 <v-clicks>
 
-**Test Agent Setup:**
-```
-/agent create test-agent
-Context: "Full customer management requirements for end-to-end testing"
-Role: "You are an integration testing specialist for API-to-UI workflows. Create comprehensive test coverage."
+**Step 3:** Create UI component agent:
+
+```bash
+/agent create ui-specialist
+
+# Configure with:
+"You are a React component specialist. Build forms and customer display components.
+Create components that integrate with existing CustomerCard from previous exercises.
+Focus on user-friendly interfaces with validation feedback."
 ```
 
-## Agent Summary:
-- **API Agent**: Secure CRUD routes + validation
-- **Security Agent**: Vulnerability analysis  
-- **Service Agent**: Business logic + data abstraction
-- **UI Agent**: React forms + customer display
-- **Test Agent**: End-to-end verification
+**Step 4:** Create security review agent:
+
+```bash
+/agent create security-reviewer
+
+# Configure with:
+"You are a security specialist. Review API code for vulnerabilities like injection attacks.
+Focus on input validation, sanitization, and secure data handling practices."
+```
 
 </v-clicks>
 
 ---
 
-# Exercise 06: Multi-Step Customer Management Integration
+# Exercise 06: Orchestrating Your Agents
 
-**Goal:** Build complete customer management with orchestrated AI subagents
+**Now put your agents to work:**
 
 <v-clicks>
 
-**Task** (30 minutes):
+**Step 5:** Generate the spec with main Claude:
 
-1. **Generate spec** (5 min): Launch subagent with @templates/spec-template.md + @requirements/customer-management-integration.md
+```
+Write a CustomerManagement spec using @templates/spec-template.md and @requirements/customer-management-integration.md. Focus on building upon existing CustomerCard component and mock-customers.ts data structure.
+```
 
-2. **Validate** (5 min): Review for CRUD ops, security, layer separation
+**Step 6:** Launch your service agent:
 
-3. **Orchestrated build** (20 min): Prompt Claude:
-   
-   *"Using @specs/customer-management-integration-spec.md and the defined agents above, implement complete customer management. Show orchestration plan, then launch subagents:*
-   - *API Agent: Secure CRUD routes + validation*  
-   - *Security Agent: Vulnerability analysis of API routes*
-   - *Service Agent: CustomerService + storage abstraction*
-   - *UI Agent: AddCustomerForm + CustomerList components*
-   - *Test Agent: End-to-end verification and integration testing"*
+```
+@service-agent: Using the spec above, create a CustomerService class in app/src/services/CustomerService.ts. Extend the existing mock-customers.ts data as your starting point. Include CRUD operations for the Customer interface.
+```
 
 </v-clicks>
 
 ---
 
-# Exercise 06: Key Learning Points
+# Exercise 06: Continue the Chain
+
+**Keep orchestrating your specialized agents:**
 
 <v-clicks>
 
-**Learning:**
-- **Orchestration visibility**: See Claude's execution plan and real-time subagent progress
-- **Parallel execution**: Launch multiple subagents simultaneously where possible
-- **Automated quality gates**: Security review as automated quality check
-- **Context coordination**: How Claude coordinates between subagents automatically
-- **Service layer abstraction**: Clean separation between API, service, and UI layers
+**Step 7:** Launch your API agent:
+
+```
+@api-specialist: Create secure API routes for customer CRUD operations:
+- POST /api/customers (create new customer)
+- GET /api/customers (list all customers)
+- GET /api/customers/[id] (get single customer)
+- PUT /api/customers/[id] (update customer)
+- DELETE /api/customers/[id] (delete customer)
+
+Use the CustomerService from previous step. Include input validation.
+```
+
+**Step 8:** Security review:
+
+```
+@security-reviewer: Review the API routes above for security vulnerabilities. Check for injection attacks, input validation, and data sanitization issues.
+```
+
+</v-clicks>
+
+---
+
+# Exercise 06: Complete with UI Agent
+
+**Final agent orchestration:**
+
+<v-clicks>
+
+**Step 9:** Build the UI components:
+
+```
+@ui-specialist: Create two components that work with existing CustomerCard:
+
+1. AddCustomerForm component:
+   - Form to create new customers
+   - Validation with error display
+   - Submit calls API to create customer
+
+2. CustomerList component:
+   - Displays customers using existing CustomerCard component
+   - Fetches data from API
+   - Shows customer count and allows refresh
+
+Place in app/src/components/ folder.
+```
+
+**Step 10:** Test the complete workflow:
+
+- Add new customer through form → Should appear in CustomerList → Should work with existing CustomerCard selection
+
+</v-clicks>
+
+---
+
+# Exercise 06: What You Learned
+
+<v-clicks>
+
+**Agent Orchestration Skills:**
+
+- **Agent Creation** - Setting up specialized agents with focused expertise
+- **Context Handoffs** - Passing information between agents in a coordinated workflow
+- **Agent Specialization** - Creating agents that focus on specific technical domains
+- **Security Integration** - Using dedicated security agents as quality gates
+- **Progressive Building** - Each agent builds upon previous agent outputs
 
 </v-clicks>
 
 <v-click>
 
-**Success:** Working add/list system with secure API and form validation
+**Key Takeaway:** You can create your own AI development team by setting up specialized agents and orchestrating their work
 
 </v-click>
