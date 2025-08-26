@@ -1,0 +1,37 @@
+{
+  "name": "Next.js 15 + React 19 + TS + Tailwind + Claude Code",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "Next.js dev server", "onAutoForward": "openBrowser" }
+  },
+  "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "anthropic.claude-code",
+        "RooVeterinaryInc.roo-cline"
+      ],
+      "settings": {
+        "remote.extensionKind": {
+          "GitHub.copilot": ["workspace"],
+          "GitHub.copilot-chat": ["workspace"],
+          "anthropic.claude-code": ["workspace"],
+          "RooVeterinaryInc.roo-cline": ["workspace"]
+        },
+        "settings": {
+          "editor.formatOnSave": true,
+          "typescript.tsdk": "app/node_modules/typescript/lib"
+        },
+        "extensions.ignoreRecommendations": false,
+        "update.mode": "manual"
+      }
+    }
+  }
+}
