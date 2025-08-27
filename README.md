@@ -12,6 +12,7 @@ This is the workshop repository for **AI for Engineering Teams: Practical Tools 
 4. Run the development server:
 
 ```bash
+npm install
 npm run dev
 ```
 
