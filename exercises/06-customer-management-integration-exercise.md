@@ -2,6 +2,8 @@
 
 **Goal:** Build complete customer management with multi-layer orchestration, building upon previous exercises
 
+<v-clicks>
+
 ## Building Upon Previous Work
 
 **What we have so far:**
@@ -13,11 +15,15 @@
 
 **What we're adding:** Full customer management (Create, Read, Update, Delete) with API integration
 
+</v-clicks>
+
 ---
 
 # Exercise 06: Agent Setup - You Do It
 
 **Learning Goal:** Practice setting up specialized agents for coordinated development
+
+<v-clicks>
 
 **Step 1:** Create your first agent (API specialist):
 
@@ -41,11 +47,15 @@ Always include input validation and proper HTTP status codes."
 Build upon existing mock-customers.ts data structure. Focus on clean business logic separation."
 ```
 
+</v-clicks>
+
 ---
 
 # Exercise 06: Complete Agent Setup
 
 **Continue setting up your agent team:**
+
+<v-clicks>
 
 **Step 3:** Create UI component agent:
 
@@ -68,27 +78,29 @@ Focus on user-friendly interfaces with validation feedback."
 Focus on input validation, sanitization, and secure data handling practices."
 ```
 
+</v-clicks>
+
 ---
 
 # Exercise 06: Orchestrating Your Agents
 
 **Now put your agents to work:**
 
+<v-clicks>
+
 **Step 5:** Generate the spec with main Claude:
 
-```markdown
-Write a CustomerManagement spec using @templates/spec-template.md and @requirements/customer-management-integration.md. 
-
-Focus on building upon existing CustomerCard component and mock-customers.ts data structure.
+```
+Write a CustomerManagement spec using @templates/spec-template.md and @requirements/customer-management-integration.md. Focus on building upon existing CustomerCard component and mock-customers.ts data structure.
 ```
 
 **Step 6:** Launch your service agent:
 
-```markdown
-@service-agent: Using the spec above, create a CustomerService class in app/src/services/CustomerService.ts. 
-
-Extend the existing mock-customers.ts data as your starting point. Include CRUD operations for the Customer interface.
 ```
+@service-agent: Using the spec above, create a CustomerService class in app/src/services/CustomerService.ts. Extend the existing mock-customers.ts data as your starting point. Include CRUD operations for the Customer interface.
+```
+
+</v-clicks>
 
 ---
 
@@ -96,9 +108,11 @@ Extend the existing mock-customers.ts data as your starting point. Include CRUD 
 
 **Keep orchestrating your specialized agents:**
 
+<v-clicks>
+
 **Step 7:** Launch your API agent:
 
-```markdown
+```
 @api-specialist: Create secure API routes for customer CRUD operations:
 - POST /api/customers (create new customer)
 - GET /api/customers (list all customers) 
@@ -111,10 +125,11 @@ Use the CustomerService from previous step. Include input validation.
 
 **Step 8:** Security review:
 
-```markdown
-@security-reviewer: Review the API routes above for security vulnerabilities. 
-Check for injection attacks, input validation, and data sanitization issues.
 ```
+@security-reviewer: Review the API routes above for security vulnerabilities. Check for injection attacks, input validation, and data sanitization issues.
+```
+
+</v-clicks>
 
 ---
 
@@ -122,9 +137,11 @@ Check for injection attacks, input validation, and data sanitization issues.
 
 **Final agent orchestration:**
 
+<v-clicks>
+
 **Step 9:** Build the UI components:
 
-```markdown
+```
 @ui-specialist: Create two components that work with existing CustomerCard:
 
 1. AddCustomerForm component:
@@ -143,9 +160,13 @@ Place in app/src/components/ folder.
 **Step 10:** Test the complete workflow:
 - Add new customer through form → Should appear in CustomerList → Should work with existing CustomerCard selection
 
+</v-clicks>
+
 ---
 
 # Exercise 06: What You Learned
+
+<v-clicks>
 
 **Agent Orchestration Skills:**
 
@@ -155,4 +176,21 @@ Place in app/src/components/ folder.
 - **Security Integration** - Using dedicated security agents as quality gates
 - **Progressive Building** - Each agent builds upon previous agent outputs
 
+</v-clicks>
+
+<v-click>
+
 **Key Takeaway:** You can create your own AI development team by setting up specialized agents and orchestrating their work
+
+</v-click>
+
+---
+
+# Save your progress
+
+Commit your changes:
+
+Then commit your changes:
+```
+git add -A && git commit -m "feat: integrate customer management with full CRUD operations"
+```

@@ -1,11 +1,23 @@
 # Exercise 01: Prompt Claude for Your First Spec
 
-**Goal:** Use Claude to create a clear, testable specification for CustomerSelector component
+**Goal:** Use Claude to create a CustomerSelector specification
 
 **Your task** (10 minutes):
-1. **Prompt Claude** with: "Write a CustomerSelector spec using @templates/spec-template.md and @requirements/customer-selector.md"
-2. **Review the output** - does it match the template structure?
-3. **Iterate and refine** - ask Claude to be more specific where needed
-4. **Compare** your result with the sample spec on the previous slide
 
-**Success criteria:** Claude generates a specification that clearly defines the CustomerSelector interface and behavior, ready for implementation
+1. **Prompt Claude**:
+   ```
+   Write a CustomerSelector spec using @templates/spec-template.md and @requirements/customer-selector.md
+   ```
+
+2. **Review & refine** - check template structure, iterate if needed
+
+3. **Compare** with sample spec from previous slide
+
+4. **Save progress**:
+   ```
+   git add -A && git commit -m "docs: add CustomerSelector specification"
+   ```
+
+**Note**: Spec writing only - implementation comes in Exercise 3
+
+**Success:** Clear specification ready for implementation
