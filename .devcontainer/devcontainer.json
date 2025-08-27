@@ -10,7 +10,6 @@
     "3000": { "label": "Next.js dev server", "onAutoForward": "openBrowser" }
   },
   "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
-  "postStartCommand": "npm install && npm run dev",
   "customizations": {
     "vscode": {
       "extensions": [
