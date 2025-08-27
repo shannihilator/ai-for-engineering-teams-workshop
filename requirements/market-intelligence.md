@@ -10,16 +10,18 @@
 
 ### API Layer
 - Create Next.js API route at `/api/market-intelligence/[company]`
-- Integrate with Stillriver proxy to API Ninjas news endpoint
+- Use mock data generation for reliable workshop demonstration
 - Validate company name input and sanitize responses
 - Return consistent JSON response format with sentiment, news count, and headlines
 - Follow same patterns as existing customer management API routes
+- Include realistic API delay simulation for authentic user experience
 
 ### Service Layer
 - Create MarketIntelligenceService class following established patterns
-- Implement caching with TTL expiration (10-minute cache for news data)
+- Implement caching with TTL expiration (10-minute cache for mock news data)
 - Centralized error handling with custom MarketIntelligenceError class
 - Pure function implementations for testability and consistency
+- Mock data service generates realistic company-specific headlines and sentiment
 
 ### UI Component
 - Build MarketIntelligenceWidget component matching existing widget patterns
@@ -43,10 +45,11 @@
 
 ## Security Requirements
 - Company name parameter validation to prevent injection attacks
-- Input sanitization and external API call security
-- Proper timeout handling for external API requests
+- Input sanitization for mock data generation security
+- Proper timeout simulation and error handling
 - Error message sanitization (no sensitive information leakage)
 - Follow same security patterns as customer management integration
+- Mock data generation prevents external API vulnerabilities
 
 ## Technical Constraints
 - Next.js 15 App Router with Route Handlers
@@ -68,3 +71,4 @@
 - Show how to maintain consistency without manual pattern summarization
 - Teach effective spec generation using existing codebase analysis
 - Illustrate cohesive dashboard composition with multiple AI-generated widgets
+- Use mock data to ensure reliable, predictable workshop outcomes
