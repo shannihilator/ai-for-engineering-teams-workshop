@@ -34,7 +34,7 @@ export const healthScoreSchema = z
   .max(100, 'Health score must be at most 100');
 
 export const subscriptionTierSchema = z.enum(['basic', 'premium', 'enterprise'], {
-  errorMap: () => ({ message: 'Subscription tier must be basic, premium, or enterprise' })
+  message: 'Subscription tier must be basic, premium, or enterprise'
 });
 
 export const customerIdSchema = z
@@ -89,19 +89,13 @@ export const paginationSchema = z.object({
   page: z
     .string()
     .regex(/^\d+$/, 'Page must be a positive integer')
-    .transform(Number)
-    .refine(n => n >= 1, 'Page must be at least 1')
     .optional()
-    .default('1')
-    .transform(String),
+    .default('1'),
   limit: z
     .string()
     .regex(/^\d+$/, 'Limit must be a positive integer')
-    .transform(Number)
-    .refine(n => n >= 1 && n <= 100, 'Limit must be between 1 and 100')
     .optional()
     .default('10')
-    .transform(String)
 });
 
 export const filterSchema = z.object({
