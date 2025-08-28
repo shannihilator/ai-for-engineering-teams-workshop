@@ -39,6 +39,17 @@ export type {
 // Demo component showcasing integration
 export { CustomerManagementDemo } from './CustomerManagementDemo';
 
+// Market intelligence and health scoring components
+export { MarketIntelligenceWidget } from './MarketIntelligenceWidget';
+export type { 
+  MarketIntelligenceWidgetProps,
+  MarketIntelligenceData,
+  MarketHeadline
+} from './MarketIntelligenceWidget';
+
+export { CustomerHealthDisplay } from './CustomerHealthDisplay';
+export type { CustomerHealthDisplayProps } from './CustomerHealthDisplay';
+
 // UI components
 export { LoadingButton } from './ui/LoadingButton';
 export type { LoadingButtonProps } from './ui/LoadingButton';

@@ -204,11 +204,8 @@ export interface CalculationOptions {
 
 #### Algorithm Validation and Testing  
 - [ ] Unit tests cover all individual scoring functions with edge cases
-- [ ] Integration tests verify weighted calculation accuracy
-- [ ] Realistic customer scenario testing with known expected outcomes
 - [ ] Mathematical accuracy verification with precision testing
 - [ ] Business logic validation with stakeholder-approved test cases
-- [ ] Performance benchmarking meets specified calculation time requirements
 
 #### Documentation and Explainability
 - [ ] Comprehensive JSDoc comments explain business logic and mathematical formulas

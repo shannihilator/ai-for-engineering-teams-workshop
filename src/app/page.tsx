@@ -80,6 +80,49 @@ const MarketIntelligenceDemo = () => {
   );
 };
 
+// Customer Health Display Demo
+const CustomerHealthDemo = () => {
+  try {
+    const { CustomerHealthDisplay } = require('../components/CustomerHealthDisplay');
+    const { mockCustomers } = require('../data/mock-customers');
+    const { getCustomerHealthData } = require('../data/mock-customer-health');
+    const { ErrorBoundary } = require('../components/ui/ErrorBoundary');
+    
+    if (CustomerHealthDisplay && ErrorBoundary && mockCustomers && getCustomerHealthData) {
+      // Use the first customer (Acme Corp) for demo
+      const demoCustomer = mockCustomers[0];
+      const healthData = getCustomerHealthData(demoCustomer.id);
+      
+      if (healthData) {
+        return (
+          <ErrorBoundary
+            onError={(error, errorInfo) => {
+              console.error('CustomerHealthDisplay error:', error, errorInfo);
+            }}
+          >
+            <CustomerHealthDisplay 
+              customer={demoCustomer}
+              healthData={healthData}
+              showBreakdown={true}
+              onHealthCalculated={(score, breakdown) => {
+                console.log('Health score calculated:', score, breakdown);
+              }}
+            />
+          </ErrorBoundary>
+        );
+      }
+    }
+  } catch (error) {
+    console.log('CustomerHealthDisplay not available:', error);
+  }
+  
+  return (
+    <div className="text-gray-500 text-sm">
+      Customer Health Display is loading...
+    </div>
+  );
+};
+
 // Individual component demos removed - using integrated CustomerManagementDemo instead
 
 const DashboardWidgetDemo = ({ widgetName, exerciseNumber }: { widgetName: string, exerciseNumber: number }) => {
@@ -118,6 +161,7 @@ export default function Home() {
           <p>✅ AddCustomerForm - Real-time validation with health score preview</p>
           <p>✅ CustomerListAPI - Advanced filtering and pagination</p>
           <p>✅ <strong>Market Intelligence Widget - Real-time sentiment analysis!</strong></p>
+          <p>✅ <strong>Health Score Calculator - Multi-factor customer health analytics!</strong></p>
           <p className="text-gray-400">⏳ Exercise 5: Domain Health widget</p>
           <p className="text-gray-400">⏳ Exercise 9: Production-ready features</p>
         </div>
@@ -166,6 +210,22 @@ export default function Home() {
           </p>
           <Suspense fallback={<div className="text-gray-500">Loading Market Intelligence...</div>}>
             <MarketIntelligenceDemo />
+          </Suspense>
+        </section>
+
+        {/* Customer Health Calculator Section */}
+        <section className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg shadow-lg p-6 border-l-4 border-emerald-500">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-xl font-bold text-emerald-900">🏥 Customer Health Calculator</h3>
+            <span className="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full font-medium">
+              LIVE & FUNCTIONAL
+            </span>
+          </div>
+          <p className="text-emerald-800 mb-4 text-sm">
+            Multi-factor health scoring system with predictive analytics for churn risk assessment
+          </p>
+          <Suspense fallback={<div className="text-gray-500">Loading Customer Health Calculator...</div>}>
+            <CustomerHealthDemo />
           </Suspense>
         </section>
 
