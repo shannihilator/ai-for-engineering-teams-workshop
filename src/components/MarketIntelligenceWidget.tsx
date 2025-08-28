@@ -144,21 +144,21 @@ export function MarketIntelligenceWidget({
     
     if (label === 'Positive' || normalizedScore >= 71) {
       return {
-        color: 'text-green-700 bg-green-100 border-green-200',
-        dotColor: 'bg-green-500',
-        textColor: 'text-green-700'
+        color: 'text-green-800 bg-green-50 border-green-300',
+        dotColor: 'bg-green-600',
+        textColor: 'text-green-800'
       };
     } else if (label === 'Neutral' || (normalizedScore >= 31 && normalizedScore <= 70)) {
       return {
-        color: 'text-yellow-700 bg-yellow-100 border-yellow-200',
-        dotColor: 'bg-yellow-500',
-        textColor: 'text-yellow-700'
+        color: 'text-yellow-800 bg-yellow-50 border-yellow-300',
+        dotColor: 'bg-yellow-600',
+        textColor: 'text-yellow-800'
       };
     } else {
       return {
-        color: 'text-red-700 bg-red-100 border-red-200',
-        dotColor: 'bg-red-500',
-        textColor: 'text-red-700'
+        color: 'text-red-800 bg-red-50 border-red-300',
+        dotColor: 'bg-red-600',
+        textColor: 'text-red-800'
       };
     }
   };
@@ -183,10 +183,18 @@ export function MarketIntelligenceWidget({
   const widgetClasses = `${baseClasses} ${className}`;
 
   return (
-    <div className={widgetClasses} style={{ maxWidth: '400px' }}>
+    <div 
+      className={widgetClasses} 
+      style={{ maxWidth: '400px' }}
+      role="region"
+      aria-labelledby="market-intelligence-heading"
+    >
       {/* Header */}
       <div className="mb-4">
-        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+        <h3 
+          id="market-intelligence-heading"
+          className="text-lg font-semibold text-gray-900 mb-1"
+        >
           Market Intelligence
         </h3>
         <p className="text-sm text-gray-600">
@@ -211,7 +219,7 @@ export function MarketIntelligenceWidget({
               onChange={handleInputChange}
               placeholder="Enter company name..."
               className={`flex-1 px-3 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                inputError ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                inputError ? 'border-red-400 bg-red-50 text-gray-900' : 'border-gray-300 text-gray-900'
               }`}
               disabled={isLoading}
               maxLength={100}
@@ -227,11 +235,12 @@ export function MarketIntelligenceWidget({
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}
               aria-busy={isLoading}
+              aria-describedby={isLoading ? 'loading-status' : undefined}
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
                   <svg
-                    className="animate-spin h-4 w-4"
+                    className="animate-spin h-4 w-4 motion-reduce:animate-pulse"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -261,7 +270,7 @@ export function MarketIntelligenceWidget({
           {inputError && (
             <p 
               id="company-name-error" 
-              className="mt-1 text-sm text-red-600"
+              className="mt-1 text-sm text-red-700 font-medium"
               role="alert"
             >
               {inputError}
@@ -277,9 +286,10 @@ export function MarketIntelligenceWidget({
           role="status"
           aria-live="polite"
           aria-label="Loading market intelligence data"
+          id="loading-status"
         >
           <svg
-            className="animate-spin h-8 w-8 mx-auto mb-3 text-blue-600"
+            className="animate-spin h-8 w-8 mx-auto mb-3 text-blue-600 motion-reduce:animate-pulse"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -299,7 +309,7 @@ export function MarketIntelligenceWidget({
               d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             />
           </svg>
-          <p className="text-sm text-gray-600">Analyzing market intelligence...</p>
+          <p className="text-sm text-gray-700 font-medium">Analyzing market intelligence for {inputCompanyName}...</p>
         </div>
       )}
 
@@ -325,13 +335,14 @@ export function MarketIntelligenceWidget({
               />
             </svg>
             <div className="flex-1">
-              <h4 className="text-sm font-medium text-red-800 mb-1">
+              <h4 className="text-sm font-semibold text-red-900 mb-1">
                 Unable to fetch market data
               </h4>
-              <p className="text-sm text-red-700">{error}</p>
+              <p className="text-sm text-red-800 font-medium">{error}</p>
               <button
                 onClick={handleRetry}
-                className="mt-2 text-sm font-medium text-red-800 underline hover:text-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded"
+                className="mt-2 text-sm font-semibold text-red-900 underline hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-1 py-0.5"
+                aria-label={`Retry fetching market intelligence for ${inputCompanyName}`}
               >
                 Try again
               </button>
@@ -344,13 +355,13 @@ export function MarketIntelligenceWidget({
       {data && !isLoading && (
         <div className="space-y-4">
           {/* Sentiment Analysis */}
-          <div>
-            <h4 className="text-sm font-medium text-gray-900 mb-2">Market Sentiment</h4>
+          <div role="group" aria-labelledby="sentiment-heading">
+            <h4 id="sentiment-heading" className="text-sm font-medium text-gray-900 mb-2">Market Sentiment</h4>
             <div className="flex items-center justify-between">
               <div 
                 className={`flex items-center gap-2 px-3 py-2 rounded-full border ${getSentimentDisplay(data.sentiment, data.sentimentLabel).color}`}
                 role="status"
-                aria-label={`Market sentiment: ${data.sentimentLabel}`}
+                aria-label={`Market sentiment: ${data.sentimentLabel}. Sentiment score: ${data.sentiment} out of 100.`}
               >
                 <div 
                   className={`w-2 h-2 rounded-full ${getSentimentDisplay(data.sentiment, data.sentimentLabel).dotColor}`}
@@ -372,30 +383,40 @@ export function MarketIntelligenceWidget({
           </div>
 
           {/* Headlines */}
-          <div>
-            <h4 className="text-sm font-medium text-gray-900 mb-3">Recent Headlines</h4>
-            <div className="space-y-3">
+          <div role="group" aria-labelledby="headlines-heading">
+            <h4 id="headlines-heading" className="text-sm font-medium text-gray-900 mb-3">
+              Recent Headlines ({data.headlines.length})
+            </h4>
+            <div className="space-y-3" role="list" aria-label="Market intelligence headlines">
               {data.headlines.map((headline, index) => (
-                <div 
+                <article 
                   key={index}
-                  className="border-l-4 border-gray-200 pl-4 hover:border-blue-300 transition-colors"
+                  className="border-l-4 border-gray-200 pl-4 hover:border-blue-300 transition-colors focus-within:border-blue-500"
+                  role="listitem"
+                  tabIndex={0}
+                  aria-label={`Headline ${index + 1} of ${data.headlines.length}`}
                 >
                   <h5 className="text-sm font-medium text-gray-900 leading-tight mb-1">
                     {headline.title}
                   </h5>
                   <div className="flex items-center justify-between text-xs text-gray-500">
-                    <span className="font-medium">{headline.source}</span>
-                    <time dateTime={headline.publishedAt}>
+                    <span className="font-medium" aria-label={`Source: ${headline.source}`}>
+                      {headline.source}
+                    </span>
+                    <time 
+                      dateTime={headline.publishedAt}
+                      aria-label={`Published on ${formatDate(headline.publishedAt)}`}
+                    >
                       {formatDate(headline.publishedAt)}
                     </time>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
             
             {data.headlines.length === 0 && (
-              <div className="text-center py-4">
-                <p className="text-sm text-gray-500">No recent headlines available</p>
+              <div className="text-center py-4" role="status" aria-live="polite">
+                <p className="text-sm text-gray-500">No recent headlines available for {inputCompanyName}</p>
               </div>
             )}
           </div>
@@ -404,7 +425,7 @@ export function MarketIntelligenceWidget({
 
       {/* Empty State */}
       {!data && !isLoading && !error && (
-        <div className="text-center py-8">
+        <div className="text-center py-8" role="status" aria-live="polite">
           <svg
             className="h-12 w-12 mx-auto mb-4 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -412,6 +433,7 @@ export function MarketIntelligenceWidget({
             viewBox="0 0 24 24"
             stroke="currentColor"
             aria-hidden="true"
+            aria-label="Chart icon"
           >
             <path
               strokeLinecap="round"
@@ -424,7 +446,7 @@ export function MarketIntelligenceWidget({
             No market data yet
           </h4>
           <p className="text-sm text-gray-500">
-            Enter a company name to get market intelligence
+            Enter a company name above to get market intelligence and sentiment analysis
           </p>
         </div>
       )}

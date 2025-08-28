@@ -51,15 +51,22 @@ const CustomerManagementDemo = () => {
 const MarketIntelligenceDemo = () => {
   try {
     const { MarketIntelligenceWidget } = require('../components/MarketIntelligenceWidget');
+    const { ErrorBoundary } = require('../components/ui/ErrorBoundary');
     
-    if (MarketIntelligenceWidget) {
+    if (MarketIntelligenceWidget && ErrorBoundary) {
       return (
-        <MarketIntelligenceWidget 
-          companyName="Acme Corp"
-          onAnalysisComplete={(data: any) => {
-            console.log('Market intelligence analysis complete:', data);
+        <ErrorBoundary
+          onError={(error, errorInfo) => {
+            console.error('MarketIntelligenceWidget error:', error, errorInfo);
           }}
-        />
+        >
+          <MarketIntelligenceWidget 
+            companyName="Acme Corp"
+            onAnalysisComplete={(data: any) => {
+              console.log('Market intelligence analysis complete:', data);
+            }}
+          />
+        </ErrorBoundary>
       );
     }
   } catch (error) {
