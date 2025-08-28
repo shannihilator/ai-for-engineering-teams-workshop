@@ -9,14 +9,14 @@
    Add accessibility requirements from @requirements/accessibility.md to CLAUDE.md Platform Constraints
    ```
 
-2. **Validate changes** - Review the updated CLAUDE.md to ensure accessibility standards are properly integrated
+2. **Validate changes** - Review updated CLAUDE.md
 
 3. **Test constraints**:
    ```
    Create a simple button component
    ```
 
-4. **Verify behavior** - Confirm Claude automatically includes ARIA labels, keyboard support, and semantic HTML
+4. **Verify behavior** - Confirm Claude includes ARIA labels and semantic HTML
 
 5. **Save your progress**:
    ```

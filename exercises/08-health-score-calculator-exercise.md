@@ -13,9 +13,7 @@
 
 2. **Explore requirements**: Discuss health score factors and weighting collaboratively
 
-3. **Design algorithm**: Work with Claude to design calculation approach
-
-4. **Request explanations**: Have Claude explain algorithm decisions and reasoning
+3. **Request explanations**: Have Claude explain algorithm decisions and reasoning
 
 ---
 
