@@ -230,8 +230,8 @@ export function CustomerSelector({
               {/* Cat face */}
               <ellipse cx="12" cy="13" rx="8" ry="6" />
               {/* Cat ears */}
-              <path d="M8 7 L12 13 L10 7 Z" />
-              <path d="M16 7 L14 7 L12 13 Z" />
+              <path d="M8 4 L11 10 L8.5 10 Z" />
+              <path d="M16 4 L15.5 10 L13 10 Z" />
               {/* Cat eyes */}
               <ellipse cx="9.5" cy="11" rx="1" ry="1.5" fill="white" />
               <ellipse cx="14.5" cy="11" rx="1" ry="1.5" fill="white" />
