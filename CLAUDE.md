@@ -84,6 +84,15 @@ All workshop components must meet accessibility standards:
 - **Screen Reader Support**: Content structure must be screen reader friendly
 - **Reduced Motion**: Support users with reduced motion preferences
 
+#### Code Quality Standards
+All AI-generated components must maintain consistent quality:
+- **Naming Conventions**: Descriptive names (no abbreviations like `btn`, `usr`), camelCase for variables, PascalCase for components
+- **TypeScript**: Interfaces for all props and data structures with proper validation
+- **Documentation**: JSDoc comments for complex functions, meaningful commit messages and code comments
+- **Error Handling**: Proper error boundaries and error handling implementation
+- **React Standards**: Named exports preferred, custom hooks for reusable logic, proper loading/error states
+- **Semantic Elements**: Use JSX element names that describe purpose, not appearance
+
 ### Component Development Guidelines
 
 When building Customer Intelligence Dashboard components:
