@@ -11,8 +11,8 @@ const CustomerSelectorDemo = () => {
     if (CustomerSelector) {
       return (
         <CustomerSelector 
-          onCustomerSelect={(customer: any) => {
-            console.log('Selected customer:', customer);
+          onCustomerSelect={(customers: any) => {
+            console.log('Selected customers:', customers);
           }}
         />
       );

@@ -7,10 +7,12 @@ import { CustomerCard } from './CustomerCard';
 export interface CustomerSelectorProps {
   /** Optional customers array - defaults to mockCustomers */
   customers?: Customer[];
-  /** Callback when customer is selected */
-  onCustomerSelect?: (customer: Customer | null) => void;
-  /** Initially selected customer */
-  selectedCustomerId?: string;
+  /** Callback when customer selection changes */
+  onCustomerSelect?: (customers: Customer[]) => void;
+  /** Initially selected customer IDs */
+  selectedCustomerIds?: string[];
+  /** Enable multiselect mode - defaults to true */
+  multiselect?: boolean;
   /** Optional additional CSS classes */
   className?: string;
 }
@@ -22,11 +24,12 @@ export interface CustomerSelectorProps {
 export function CustomerSelector({
   customers = mockCustomers,
   onCustomerSelect,
-  selectedCustomerId,
+  selectedCustomerIds = [],
+  multiselect = true,
   className = ''
 }: CustomerSelectorProps) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedId, setSelectedId] = useState<string | null>(selectedCustomerId || null);
+  const [selectedIds, setSelectedIds] = useState<string[]>(selectedCustomerIds);
 
   /**
    * Filter customers based on search term (name or company)
@@ -48,10 +51,26 @@ export function CustomerSelector({
    * Handle customer card selection
    */
   const handleCustomerSelect = useCallback((customer: Customer) => {
-    const newSelectedId = customer.id === selectedId ? null : customer.id;
-    setSelectedId(newSelectedId);
-    onCustomerSelect?.(newSelectedId ? customer : null);
-  }, [selectedId, onCustomerSelect]);
+    let newSelectedIds: string[];
+    
+    if (multiselect) {
+      // Multiselect mode: toggle customer in selection
+      if (selectedIds.includes(customer.id)) {
+        newSelectedIds = selectedIds.filter(id => id !== customer.id);
+      } else {
+        newSelectedIds = [...selectedIds, customer.id];
+      }
+    } else {
+      // Single select mode: select only this customer or deselect if already selected
+      newSelectedIds = selectedIds.includes(customer.id) ? [] : [customer.id];
+    }
+    
+    setSelectedIds(newSelectedIds);
+    
+    // Get selected customer objects
+    const selectedCustomers = customers.filter(c => newSelectedIds.includes(c.id));
+    onCustomerSelect?.(selectedCustomers);
+  }, [selectedIds, onCustomerSelect, multiselect, customers]);
 
   /**
    * Clear search input
@@ -82,6 +101,11 @@ export function CustomerSelector({
             Customer Selection
           </h2>
           <div className="text-sm text-gray-500">
+            {selectedIds.length > 0 && (
+              <span className="mr-4 font-medium text-blue-600">
+                {selectedIds.length} selected
+              </span>
+            )}
             {filteredCustomers.length} of {customers.length} customers
           </div>
         </div>
@@ -138,6 +162,58 @@ export function CustomerSelector({
         <div id="search-description" className="sr-only">
           Search through customer names and company names to find specific customers
         </div>
+
+        {/* Selected Customers Info */}
+        {selectedIds.length > 0 && (
+          <div className="p-4 bg-green-50 border border-green-200 rounded-md">
+            <div className="flex items-start">
+              <svg
+                className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <div className="flex-1">
+                <div className="text-sm font-medium text-green-800 mb-1">
+                  {selectedIds.length === 1 
+                    ? 'Customer selected:' 
+                    : `${selectedIds.length} customers selected:`
+                  }
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {customers
+                    .filter(c => selectedIds.includes(c.id))
+                    .map((customer, index) => (
+                      <span
+                        key={customer.id}
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                      >
+                        {customer.name}
+                        <button
+                          type="button"
+                          onClick={() => handleCustomerSelect(customer)}
+                          className="ml-1.5 h-3 w-3 rounded-full inline-flex items-center justify-center text-green-600 hover:bg-green-200 hover:text-green-900 focus:outline-none focus:bg-green-200 focus:text-green-900"
+                          aria-label={`Remove ${customer.name} from selection`}
+                        >
+                          <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                            <path strokeLinecap="round" d="M1 1l6 6m0-6L1 7" />
+                          </svg>
+                        </button>
+                      </span>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Results Section */}
@@ -199,14 +275,14 @@ export function CustomerSelector({
                 key={customer.id}
                 onClick={() => handleCustomerSelect(customer)}
                 className={`cursor-pointer transition-all duration-200 ${
-                  selectedId === customer.id
-                    ? 'ring-2 ring-blue-500 ring-offset-2 transform scale-105'
+                  selectedIds.includes(customer.id)
+                    ? 'ring-2 ring-blue-500 ring-offset-2'
                     : 'hover:transform hover:scale-102'
                 }`}
                 role="button"
                 tabIndex={0}
-                aria-pressed={selectedId === customer.id}
-                aria-label={`${selectedId === customer.id ? 'Deselect' : 'Select'} customer ${customer.name}`}
+                aria-pressed={selectedIds.includes(customer.id)}
+                aria-label={`${selectedIds.includes(customer.id) ? 'Deselect' : 'Select'} customer ${customer.name}`}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -216,37 +292,13 @@ export function CustomerSelector({
               >
                 <CustomerCard
                   customer={customer}
-                  className={selectedId === customer.id ? 'bg-blue-50 border-blue-200' : ''}
+                  className={selectedIds.includes(customer.id) ? 'bg-blue-50 border-blue-200' : ''}
                 />
               </div>
             ))}
           </div>
         )}
       </div>
-
-      {/* Selected Customer Info */}
-      {selectedId && (
-        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-md">
-          <div className="flex items-center">
-            <svg
-              className="h-5 w-5 text-green-400 mr-2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-sm font-medium text-green-800">
-              Customer selected: {filteredCustomers.find(c => c.id === selectedId)?.name}
-            </span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
