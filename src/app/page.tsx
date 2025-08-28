@@ -47,6 +47,32 @@ const CustomerManagementDemo = () => {
   );
 };
 
+// Market Intelligence Widget Demo
+const MarketIntelligenceDemo = () => {
+  try {
+    const { MarketIntelligenceWidget } = require('../components/MarketIntelligenceWidget');
+    
+    if (MarketIntelligenceWidget) {
+      return (
+        <MarketIntelligenceWidget 
+          companyName="Acme Corp"
+          onAnalysisComplete={(data: any) => {
+            console.log('Market intelligence analysis complete:', data);
+          }}
+        />
+      );
+    }
+  } catch (error) {
+    console.log('MarketIntelligenceWidget not available:', error);
+  }
+  
+  return (
+    <div className="text-gray-500 text-sm">
+      Market Intelligence widget is loading...
+    </div>
+  );
+};
+
 // Individual component demos removed - using integrated CustomerManagementDemo instead
 
 const DashboardWidgetDemo = ({ widgetName, exerciseNumber }: { widgetName: string, exerciseNumber: number }) => {
@@ -84,6 +110,7 @@ export default function Home() {
           <p>✅ Secure API Routes - OWASP compliant with rate limiting</p>
           <p>✅ AddCustomerForm - Real-time validation with health score preview</p>
           <p>✅ CustomerListAPI - Advanced filtering and pagination</p>
+          <p>✅ <strong>Market Intelligence Widget - Real-time sentiment analysis!</strong></p>
           <p className="text-gray-400">⏳ Exercise 5: Domain Health widget</p>
           <p className="text-gray-400">⏳ Exercise 9: Production-ready features</p>
         </div>
@@ -119,13 +146,29 @@ export default function Home() {
           </Suspense>
         </section>
 
+        {/* Market Intelligence Widget Section */}
+        <section className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg shadow-lg p-6 border-l-4 border-purple-500">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-xl font-bold text-purple-900">📈 Market Intelligence Widget</h3>
+            <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full font-medium">
+              LIVE & FUNCTIONAL
+            </span>
+          </div>
+          <p className="text-purple-800 mb-4 text-sm">
+            Real-time market sentiment analysis and news intelligence for customer companies
+          </p>
+          <Suspense fallback={<div className="text-gray-500">Loading Market Intelligence...</div>}>
+            <MarketIntelligenceDemo />
+          </Suspense>
+        </section>
+
         {/* Dashboard Widgets Section */}
         <section className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4">Dashboard Widgets</h3>
+          <h3 className="text-lg font-semibold mb-4">Additional Dashboard Widgets</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <DashboardWidgetDemo widgetName="Domain Health Widget" exerciseNumber={5} />
-            <DashboardWidgetDemo widgetName="Market Intelligence" exerciseNumber={6} />
             <DashboardWidgetDemo widgetName="Predictive Alerts" exerciseNumber={8} />
+            <DashboardWidgetDemo widgetName="Customer Insights" exerciseNumber={9} />
           </div>
         </section>
 

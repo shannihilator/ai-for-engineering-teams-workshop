@@ -21,3 +21,17 @@ export type {
   CreateCustomerInput,
   UpdateCustomerInput,
 } from './CustomerService';
+
+// Export MarketIntelligenceService and all related types and errors
+export {
+  MarketIntelligenceService,
+  marketIntelligenceService,
+  MarketIntelligenceError,
+  MarketIntelligenceValidationError,
+  MarketIntelligenceNotFoundError,
+} from './MarketIntelligenceService';
+
+export type {
+  MarketIntelligenceData,
+  MarketHeadline,
+} from './MarketIntelligenceService';
