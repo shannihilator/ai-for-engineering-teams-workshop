@@ -22,6 +22,23 @@ export type { CustomerListProps, SortField, SortDirection, HealthFilter } from '
 export { CustomerManagement } from './CustomerManagement';
 export type { CustomerManagementProps, ViewMode } from './CustomerManagement';
 
+// New API-integrated components
+export { AddCustomerForm } from './AddCustomerForm';
+export type { 
+  AddCustomerFormProps, 
+  AddCustomerFormData, 
+  FormValidationErrors 
+} from './AddCustomerForm';
+
+export { CustomerListAPI } from './CustomerListAPI';
+export type { 
+  CustomerListAPIProps,
+  SubscriptionFilter
+} from './CustomerListAPI';
+
+// Demo component showcasing integration
+export { CustomerManagementDemo } from './CustomerManagementDemo';
+
 // UI components
 export { LoadingButton } from './ui/LoadingButton';
 export type { LoadingButtonProps } from './ui/LoadingButton';
