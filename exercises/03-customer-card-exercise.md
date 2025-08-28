@@ -22,7 +22,7 @@
 
 4. **Test and iterate** - Verify component shows customer domains correctly
 
-5. **Test in browser** - Run `npm run dev` and visit http://localhost:3000 to see your CustomerCard components
+5. **Test in browser** - Run `npm run dev` and visit the app URL to see your CustomerCard components
 
 6. **Save your progress**:
    ```

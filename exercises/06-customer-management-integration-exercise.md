@@ -19,146 +19,131 @@
 
 ---
 
-# Exercise 06: Agent Setup - You Do It
+# Exercise 06: Ask Claude to Plan Multi-Step Integration
 
-**Learning Goal:** Practice setting up specialized agents for coordinated development
+**Learning Goal:** Learn to orchestrate Claude through complex, multi-file features
 
 <v-clicks>
 
-**Step 1:** Create your first agent (API specialist):
+**Step 1:** Ask Claude to create specialized agents for this integration:
 
-```bash
-# In Claude Code, create an API-focused agent
-/agent create api-specialist
+```markdown
+I need to build customer management (CRUD operations) that builds upon:
+- Existing CustomerCard component from previous exercises
+- Mock customer data in @app/src/data/mock-customers.ts
+- Customer interface already defined
 
-# Configure it with this context:
-"You are an API route specialist. Focus on Next.js App Router Route Handlers. 
-Build secure CRUD endpoints that work with existing Customer interface from @app/src/data/mock-customers.ts.
-Always include input validation and proper HTTP status codes."
+This integration requires multiple specialized agents. Please create and configure these agents for me:
+
+1. API specialist - for Next.js Route Handlers with security validation
+2. Service layer specialist - for CustomerService abstraction
+3. UI specialist - for React components that integrate with existing CustomerCard
+4. Security reviewer - for reviewing API code
+
+After creating these agents, provide a step-by-step orchestration plan.
 ```
 
-**Step 2:** Create a service layer agent:
+**Step 2:** Let Claude create the specialized agents and plan their orchestration
 
-```bash
-/agent create service-agent
+</v-clicks>
 
-# Configure with:
-"You are a service layer specialist. Create CustomerService classes that abstract data operations. 
-Build upon existing mock-customers.ts data structure. Focus on clean business logic separation."
+---
+
+# Exercise 06: Claude-Orchestrated Development
+
+**Follow Claude's orchestration plan:**
+
+<v-clicks>
+
+**Step 3:** Ask Claude to generate the spec:
+
+```markdown
+Using @templates/spec-template.md and the existing customer data structure, 
+create a comprehensive spec for customer management integration.
+Focus on CRUD operations that work with our existing CustomerCard component.
+```
+
+**Step 4:** Ask Claude to orchestrate the service layer:
+
+```markdown
+Based on the spec above, use your service-layer specialist agent to create CustomerService:
+
+Build upon the existing mock-customers.ts structure.
+Include CRUD operations for the Customer interface.
+File: app/src/services/CustomerService.ts
+
+Use your service-layer specialist to ensure proper abstraction patterns.
 ```
 
 </v-clicks>
 
 ---
 
-# Exercise 06: Complete Agent Setup
+# Exercise 06: Continue Claude Orchestration
 
-**Continue setting up your agent team:**
+**Let Claude manage the development workflow:**
 
 <v-clicks>
 
-**Step 3:** Create UI component agent:
+**Step 5:** Ask Claude to orchestrate the API specialist:
 
-```bash
-/agent create ui-specialist
+```markdown
+Context: CustomerService is complete with CRUD operations.
+Next: Use your API specialist agent to create secure API routes that use the CustomerService.
 
-# Configure with:
-"You are a React component specialist. Build forms and customer display components. 
-Create components that integrate with existing CustomerCard from previous exercises.
-Focus on user-friendly interfaces with validation feedback."
+Have the API specialist build:
+- POST /api/customers (create)
+- GET /api/customers (list all) 
+- GET /api/customers/[id] (get single)
+- PUT /api/customers/[id] (update)
+- DELETE /api/customers/[id] (delete)
+
+Ensure the API specialist includes proper input validation and HTTP status codes.
 ```
 
-**Step 4:** Create security review agent:
+**Step 6:** Ask Claude to orchestrate the security reviewer:
 
-```bash
-/agent create security-reviewer
-
-# Configure with:
-"You are a security specialist. Review API code for vulnerabilities like injection attacks. 
-Focus on input validation, sanitization, and secure data handling practices."
+```markdown
+Now use your security reviewer agent to review the API routes above.
+Have the security reviewer check for:
+- Injection attacks and input validation
+- Data sanitization issues  
+- SSRF vulnerabilities
+- Proper error handling
 ```
 
 </v-clicks>
 
 ---
 
-# Exercise 06: Orchestrating Your Agents
+# Exercise 06: UI Integration with Claude
 
-**Now put your agents to work:**
-
-<v-clicks>
-
-**Step 5:** Generate the spec with main Claude:
-
-```
-Write a CustomerManagement spec using @templates/spec-template.md and @requirements/customer-management-integration.md. Focus on building upon existing CustomerCard component and mock-customers.ts data structure.
-```
-
-**Step 6:** Launch your service agent:
-
-```
-@service-agent: Using the spec above, create a CustomerService class in app/src/services/CustomerService.ts. Extend the existing mock-customers.ts data as your starting point. Include CRUD operations for the Customer interface.
-```
-
-</v-clicks>
-
----
-
-# Exercise 06: Continue the Chain
-
-**Keep orchestrating your specialized agents:**
+**Complete the integration through Claude:**
 
 <v-clicks>
 
-**Step 7:** Launch your API agent:
+**Step 7:** Ask Claude to orchestrate the UI specialist:
 
-```
-@api-specialist: Create secure API routes for customer CRUD operations:
-- POST /api/customers (create new customer)
-- GET /api/customers (list all customers) 
-- GET /api/customers/[id] (get single customer)
-- PUT /api/customers/[id] (update customer)
-- DELETE /api/customers/[id] (delete customer)
+```markdown
+Context: Secure API routes are complete and reviewed by security specialist.
+Final step: Use your UI specialist agent to create components that integrate with existing CustomerCard.
 
-Use the CustomerService from previous step. Include input validation.
-```
+Have the UI specialist build:
+1. AddCustomerForm - Create new customers with validation
+2. CustomerList - Display customers using existing CustomerCard
 
-**Step 8:** Security review:
-
-```
-@security-reviewer: Review the API routes above for security vulnerabilities. Check for injection attacks, input validation, and data sanitization issues.
+Ensure the UI specialist places components in app/src/components/ folder and follows React 19 + Tailwind patterns.
 ```
 
-</v-clicks>
+**Step 8:** Ask Claude to orchestrate integration testing:
 
----
-
-# Exercise 06: Complete with UI Agent
-
-**Final agent orchestration:**
-
-<v-clicks>
-
-**Step 9:** Build the UI components:
-
+```markdown
+Now coordinate all your agents to verify the complete customer management workflow:
+- Have agents test API endpoints with example requests
+- Ensure new customers appear in CustomerList  
+- Confirm integration with existing CustomerCard selection
+- Provide a comprehensive testing checklist from all specialists
 ```
-@ui-specialist: Create two components that work with existing CustomerCard:
-
-1. AddCustomerForm component:
-   - Form to create new customers
-   - Validation with error display
-   - Submit calls API to create customer
-
-2. CustomerList component:  
-   - Displays customers using existing CustomerCard component
-   - Fetches data from API
-   - Shows customer count and allows refresh
-
-Place in app/src/components/ folder.
-```
-
-**Step 10:** Test the complete workflow:
-- Add new customer through form → Should appear in CustomerList → Should work with existing CustomerCard selection
 
 </v-clicks>
 
@@ -168,19 +153,19 @@ Place in app/src/components/ folder.
 
 <v-clicks>
 
-**Agent Orchestration Skills:**
+**Specialized Agent Orchestration Skills:**
 
-- **Agent Creation** - Setting up specialized agents with focused expertise
-- **Context Handoffs** - Passing information between agents in a coordinated workflow  
-- **Agent Specialization** - Creating agents that focus on specific technical domains
-- **Security Integration** - Using dedicated security agents as quality gates
-- **Progressive Building** - Each agent builds upon previous agent outputs
+- **Agent Creation Requests** - Asking Claude to create and configure specialized agents
+- **Agent Orchestration** - Having Claude coordinate multiple agents through workflows
+- **Context Management** - Providing context from previous agents to maintain workflow continuity
+- **Security Integration** - Using specialized security reviewer agents through Claude
+- **Multi-Agent Coordination** - Guiding Claude to orchestrate API, service, UI, and security specialists
 
 </v-clicks>
 
 <v-click>
 
-**Key Takeaway:** You can create your own AI development team by setting up specialized agents and orchestrating their work
+**Key Takeaway:** You can ask Claude to create specialized agents and then orchestrate them through complex development workflows - getting the benefits of specialization while maintaining Claude's coordination
 
 </v-click>
 
