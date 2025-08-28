@@ -59,8 +59,8 @@ Customer health scores use color-coded ranges:
 
 This codebase follows **spec-driven development**:
 
-1. Use templates from `/templates/spec-template.md` to create specifications
-2. Store generated specs in `/specs/` directory
+1. Use templates from `@templates/spec-template.md` to create specifications
+2. Store generated specs in `@specs/` directory
 3. Work through `/exercises/` progressively
 4. Each exercise builds upon previous skills
 
@@ -100,3 +100,4 @@ When building Customer Intelligence Dashboard components:
 - All exercises are self-contained and can be approached iteratively
 - Focus on spec-driven development patterns rather than just completing tasks
 - Security best practices should be maintained for AI-generated code
+- absolutely never change code in the src directory to make a test pass
