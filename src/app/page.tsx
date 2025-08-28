@@ -3,13 +3,19 @@
 import { Suspense } from 'react';
 
 // Dynamic component imports with error boundaries
-const CustomerCardDemo = () => {
+const CustomerSelectorDemo = () => {
   try {
-    // Try to import CustomerCardGrid - this will work after Exercise 3
-    const { CustomerCardGrid } = require('../components/CustomerCard');
+    // Try to import CustomerSelector - this will work after Exercise 4
+    const { CustomerSelector } = require('../components/CustomerSelector');
     
-    if (CustomerCardGrid) {
-      return <CustomerCardGrid />;
+    if (CustomerSelector) {
+      return (
+        <CustomerSelector 
+          onCustomerSelect={(customer: any) => {
+            console.log('Selected customer:', customer);
+          }}
+        />
+      );
     }
   } catch (error) {
     // Component doesn't exist yet
@@ -17,7 +23,7 @@ const CustomerCardDemo = () => {
   
   return (
     <div className="text-gray-500 text-sm">
-      After Exercise 3, your CustomerCard components will appear here showing customer information with health scores.
+      After Exercise 4, your CustomerSelector component will appear here with search and selection functionality.
     </div>
   );
 };
@@ -50,8 +56,8 @@ export default function Home() {
         <h2 className="text-xl font-semibold mb-4">Workshop Progress</h2>
         <div className="space-y-2 text-sm text-gray-600">
           <p>✅ Setup Complete - Next.js app is running</p>
-          <p className="text-gray-400">⏳ Exercise 3: CustomerCard component (implement to see here)</p>
-          <p className="text-gray-400">⏳ Exercise 4: CustomerSelector integration</p>
+          <p>✅ Exercise 3: CustomerCard component implemented</p>
+          <p>✅ Exercise 4: CustomerSelector component implemented</p>
           <p className="text-gray-400">⏳ Exercise 5: Domain Health widget</p>
           <p className="text-gray-400">⏳ Exercise 9: Production-ready features</p>
         </div>
@@ -59,11 +65,11 @@ export default function Home() {
 
       {/* Component Showcase Area */}
       <div className="space-y-8">
-        {/* CustomerCard Section */}
+        {/* CustomerSelector Section */}
         <section className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4">CustomerCard Component</h3>
+          <h3 className="text-lg font-semibold mb-4">CustomerSelector Component</h3>
           <Suspense fallback={<div className="text-gray-500">Loading...</div>}>
-            <CustomerCardDemo />
+            <CustomerSelectorDemo />
           </Suspense>
         </section>
 
