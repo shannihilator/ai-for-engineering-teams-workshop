@@ -126,14 +126,15 @@ export function MarketIntelligenceWidget({
   }, [inputCompanyName, fetchMarketData]);
 
   /**
-   * Auto-fetch data when companyName prop changes
+   * Auto-populate input when companyName prop is provided initially
+   * Only updates when prop changes from empty to a value, not on user input changes
    */
   useEffect(() => {
-    if (companyName && companyName !== inputCompanyName) {
+    if (companyName && !inputCompanyName) {
       setInputCompanyName(companyName);
       fetchMarketData(companyName);
     }
-  }, [companyName, inputCompanyName, fetchMarketData]);
+  }, [companyName, fetchMarketData]); // Removed inputCompanyName from dependencies
 
   /**
    * Get sentiment display properties based on score
