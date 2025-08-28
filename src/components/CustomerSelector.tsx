@@ -147,17 +147,30 @@ export function CustomerSelector({
           <div className="text-center py-12">
             <svg
               className="mx-auto h-12 w-12 text-gray-400"
-              fill="none"
+              fill="currentColor"
               viewBox="0 0 24 24"
-              stroke="currentColor"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8a7.962 7.962 0 01-2.291 5.291z"
-              />
+              {/* Cat face */}
+              <ellipse cx="12" cy="13" rx="8" ry="6" />
+              {/* Cat ears */}
+              <path d="M8 7 L12 13 L10 7 Z" />
+              <path d="M16 7 L14 7 L12 13 Z" />
+              {/* Cat eyes */}
+              <ellipse cx="9.5" cy="11" rx="1" ry="1.5" fill="white" />
+              <ellipse cx="14.5" cy="11" rx="1" ry="1.5" fill="white" />
+              <circle cx="9.5" cy="11" r="0.5" fill="currentColor" />
+              <circle cx="14.5" cy="11" r="0.5" fill="currentColor" />
+              {/* Cat nose */}
+              <path d="M12 13 L11 14 L13 14 Z" fill="white" />
+              {/* Cat mouth */}
+              <path d="M12 15 Q10 16 9 15" stroke="white" strokeWidth="0.5" fill="none" />
+              <path d="M12 15 Q14 16 15 15" stroke="white" strokeWidth="0.5" fill="none" />
+              {/* Cat whiskers */}
+              <line x1="6" y1="12" x2="8" y2="11.5" stroke="white" strokeWidth="0.5" />
+              <line x1="6" y1="13" x2="8" y2="13" stroke="white" strokeWidth="0.5" />
+              <line x1="16" y1="11.5" x2="18" y2="12" stroke="white" strokeWidth="0.5" />
+              <line x1="16" y1="13" x2="18" y2="13" stroke="white" strokeWidth="0.5" />
             </svg>
             <h3 className="mt-2 text-sm font-medium text-gray-900">No customers found</h3>
             <p className="mt-1 text-sm text-gray-500">

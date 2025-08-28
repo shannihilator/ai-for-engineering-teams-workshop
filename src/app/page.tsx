@@ -67,7 +67,6 @@ export default function Home() {
       <div className="space-y-8">
         {/* CustomerSelector Section */}
         <section className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4">CustomerSelector Component</h3>
           <Suspense fallback={<div className="text-gray-500">Loading...</div>}>
             <CustomerSelectorDemo />
           </Suspense>
