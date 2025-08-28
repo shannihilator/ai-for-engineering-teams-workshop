@@ -5,20 +5,11 @@ import { Suspense } from 'react';
 // Dynamic component imports with error boundaries
 const CustomerCardDemo = () => {
   try {
-    // Try to import CustomerCard - this will work after Exercise 3
-    const CustomerCard = require('../components/CustomerCard')?.default;
-    const mockCustomers = require('../data/mock-customers')?.mockCustomers;
+    // Try to import CustomerCardGrid - this will work after Exercise 3
+    const { CustomerCardGrid } = require('../components/CustomerCard');
     
-    if (CustomerCard && mockCustomers?.[0]) {
-      return (
-        <div className="space-y-4">
-          <p className="text-green-600 text-sm font-medium">✅ CustomerCard implemented!</p>
-          <div className="flex flex-wrap gap-4">
-            <CustomerCard customer={mockCustomers[0]} />
-            <CustomerCard customer={mockCustomers[1]} />
-          </div>
-        </div>
-      );
+    if (CustomerCardGrid) {
+      return <CustomerCardGrid />;
     }
   } catch (error) {
     // Component doesn't exist yet
